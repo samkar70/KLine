@@ -12,20 +12,14 @@ const Header: React.FC = () => {
       />
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-slate-900 via-slate-900/70 to-transparent"></div>
       
-      <div className="relative h-full flex flex-col justify-between p-4 sm:p-6 lg:p-8">
-        <div className="bg-black/50 backdrop-blur-sm p-3 rounded-lg max-w-md">
-            <p className="text-sm font-semibold text-amber-400 uppercase tracking-wider">ASOCIACION</p>
-            <h3 className="text-xl font-bold mt-1">Mujer de Vision y Mision</h3>
-            <p className="text-slate-300 text-sm mt-1"> Mujeres de primer nivel, con un espiritu inquebrantables. </p>
-            <a href="#" className="text-sm text-amber-400 hover:text-amber-300 transition-colors mt-2 inline-block">Más Información &rarr;</a>
-        </div>
+      {/* CAMBIO: Se eliminó el div superior y se ajustó la alineación a 'justify-end' */}
+      <div className="relative h-full flex flex-col justify-end p-4 sm:p-6 lg:p-8">
+        {/* El bloque de la asociación fue eliminado */}
 
-        {/* CAMBIO 1: Se redujo el ancho máximo del contenedor para ayudar al texto a dividirse */}
-        <div className="max-w-3xl">
+        <div className="max-w-2xl">
           <p className="text-amber-400 font-semibold uppercase tracking-wider">Mujer de Vision y Mision</p>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold my-2 leading-tight tracking-tighter">
-            {/* CAMBIO 2: Se añadió un salto de línea con <br /> */}
-            Yo soy el camino, la verdad y la vida "Juan 14:6".
+            Yo soy el camino,la verdad y la vida <br /> "Juan 14:6".
           </h1>
           <p className="text-lg md:text-xl text-slate-200">
             Con Cristo, siempre hay esperanza.... EnCanto.

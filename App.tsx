@@ -1,7 +1,6 @@
 // App.tsx
 import React from 'react';
 import Header from './components/Header';
-import FaithSection from './components/FaithSection';
 import VideoSection from './components/VideoSection';
 import MediaHub from './components/MediaHub';
 import EventsSection from './components/EventsSection';
@@ -18,7 +17,6 @@ const App: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* MediaHub ahora está aquí, fuera del Header */}
           <MediaHub />
-          <FaithSection />
           <VideoSection />
           <EventsSection />
         </div>
