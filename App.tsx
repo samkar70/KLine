@@ -1,3 +1,4 @@
+// App.tsx - Motor de Datos CSV-to-TS Optimizado para Vercel
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { PlaybackProvider } from './context/PlaybackContext';
 import Hero from './components/Hero';
@@ -15,9 +16,9 @@ const App: React.FC = () => {
   const [data, setData] = useState<MediaItem[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [bgImage, setBgImage] = useState('');
-  const [loading, setLoading] = useState(true);
+  const [status, setStatus] = useState<'loading' | 'success' | 'error'>('loading');
 
-  // FILTRO: Este es el cerebro que busca en el contenido construido
+  // FILTRO: Procesa los datos construidos por el motor
   const filteredData = useMemo(() => {
     return data.filter(item => 
       item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -32,19 +33,24 @@ const App: React.FC = () => {
     setBgImage(`https://images.unsplash.com/${randomId}?auto=format&fit=crop&w=1920&q=80`);
   }, []);
 
-  // EL PROGRAMA LECTOR: Convierte CSV -> Objetos TS
+  // EL MOTOR: Lee el CSV y construye los objetos para la Radio
   useEffect(() => {
     const loadDatabase = async () => {
       try {
-        const response = await fetch(`/db.csv?v=${Date.now()}`); // Forzamos a Vercel a leer el archivo nuevo
-        if (!response.ok) throw new Error("Archivo no encontrado");
+        // Probamos con ruta relativa para máxima compatibilidad en Vercel
+        const response = await fetch(`./db.csv?v=${Date.now()}`); 
+        
+        if (!response.ok) {
+          console.error("No se encontró el archivo db.csv");
+          setStatus('error');
+          return;
+        }
         
         const text = await response.text();
         const rows = text.split(/\r?\n/).filter(line => line.trim().length > 0);
         
-        // El "Constructor" de objetos
+        // Constructor de MediaItems desde las columnas del CSV
         const builtData: MediaItem[] = rows.slice(1).map((row, index) => {
-          // Separador inteligente para manejar comas dentro de textos
           const cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
           return {
             id: cols[0]?.trim() || `id-${index}`,
@@ -56,13 +62,13 @@ const App: React.FC = () => {
             artist: cols[7]?.trim() || "EnCanto",
             description: cols[8]?.trim() || ""
           };
-        }).filter(item => item.url.startsWith('http')); // Solo videos válidos
+        }).filter(item => item.url && item.url.includes('http'));
 
         setData(builtData);
-        setLoading(false);
+        setStatus('success');
       } catch (error) {
         console.error("Error en el Motor de Datos:", error);
-        setLoading(false);
+        setStatus('error');
       }
     };
 
@@ -70,23 +76,51 @@ const App: React.FC = () => {
     changeBackground();
   }, [changeBackground]);
 
-  if (loading) return <div className="bg-slate-950 h-screen flex items-center justify-center text-white">Cargando EnCanto...</div>;
+  // Pantalla de carga mientras el motor trabaja
+  if (status === 'loading') {
+    return (
+      <div className="bg-slate-950 h-screen flex flex-col items-center justify-center text-white">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mb-4"></div>
+        <p className="text-xl font-light">Iniciando EnCanto Radio...</p>
+      </div>
+    );
+  }
+
+  // Pantalla en caso de que el CSV no sea accesible
+  if (status === 'error') {
+    return (
+      <div className="bg-slate-950 h-screen flex items-center justify-center text-white text-center px-4">
+        <div>
+          <h1 className="text-2xl font-bold mb-2">Error en el motor de datos</h1>
+          <p className="text-slate-400">No pudimos conectar con la base de datos db.csv</p>
+          <button onClick={() => window.location.reload()} className="mt-4 bg-blue-600 px-6 py-2 rounded-full hover:bg-blue-500 transition">
+            Reintentar
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <PlaybackProvider>
       <div className="bg-slate-950 min-h-screen text-white relative overflow-x-hidden">
-        <div onClick={changeBackground} className="fixed inset-0 z-0 opacity-20 cursor-pointer" style={{ backgroundImage: `url(${bgImage})`, backgroundSize: 'cover' }}></div>
+        {/* Fondo Interactivo */}
+        <div 
+          onClick={changeBackground} 
+          className="fixed inset-0 z-0 opacity-20 cursor-pointer transition-all duration-1000" 
+          style={{ backgroundImage: `url(${bgImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+        ></div>
         
         <UniversalPlayer />
         
         <main className="relative z-10 pb-40">
+          {/* Mostramos el Hero solo si hay datos */}
           {data.length > 0 && <Hero latestItem={data[0]} />}
           
           <div className="container mx-auto px-4">
             <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
             <div className="space-y-8">
-              {/* Estos componentes leen los datos que el programa construyó */}
               <ContentRow title="Entrevistas Exclusivas" category="Entrevistas" items={filteredData} />
               <ContentRow title="Momentos Especiales" category="Momentos" items={filteredData} />
               <ContentRow title="Alabanza & Música" category="Musica" items={filteredData} />
