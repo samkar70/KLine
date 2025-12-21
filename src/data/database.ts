@@ -3,13 +3,13 @@ import { MediaItem } from '../types';
 export const mediaDatabase: MediaItem[] = [
   {
     id: "v01",
-    title: "Popurrí de Adoración al Señor",
+    title: "La liga de los culpables",
     type: "video",
-    category: "Musica",
-    url: "https://www.youtube.com/watch?v=hlL2pBQXi1Y",
-    thumbnail: "https://img.youtube.com/vi/hlL2pBQXi1Y/maxresdefault.jpg",
-    artist: "Samuel & Anabel",
-    description: "Una recopilación de temas de adoración para ministrar al espíritu."
+    category: "Momentos",
+    url: "https://youtu.be/2XuH2GalM1U?si=TltZYfH5v6OEBE8B",
+    thumbnail: "https://img.youtube.com/vi/2XuH2GalM1U/maxresdefault.jpg",
+    artist: "Dante Gebel",
+    description: "Dios usa las cosas rotas y las transforma"
   },
   {
     id: "v02",
@@ -43,13 +43,13 @@ export const mediaDatabase: MediaItem[] = [
   },
   {
     id: "v05",
-    title: "Entrevista: Nuestra Visión de Fe",
+    title: "Dante Gebel con María Laura Santillán",
     type: "video",
     category: "Entrevistas",
-    url: "https://www.youtube.com/watch?v=OkbNHDgnkxA",
-    thumbnail: "https://img.youtube.com/vi/OkbNHDgnkxA/maxresdefault.jpg",
-    artist: "Samuel Perdomo",
-    description: "Conversaciones sobre el impacto del evangelio y la misión de EnCanto."
+    url: "https://youtu.be/k7a86AdHMSg?si=rn8zjmS36xaZlpLm",
+    thumbnail: "https://img.youtube.com/vi/k7a86AdHMSg/maxresdefault.jpg",
+    artist: "Dante Gebel",
+    description: "Necesitamos creer en Dios los últimos instantes de la vida"
   },
   {
     id: "v06",
@@ -100,5 +100,15 @@ export const mediaDatabase: MediaItem[] = [
     thumbnail: "https://img.youtube.com/vi/8_WIT72u-78/maxresdefault.jpg",
     artist: "EnCanto Radio",
     description: "Versión en vivo de nuestra alabanza congregacional llena de esperanza."
+  },
+  {
+    id: "v01",
+    title: "La liga de los culpables",
+    type: "video",
+    category: "Momentos",
+    url: "https://youtu.be/2XuH2GalM1U?si=TltZYfH5v6OEBE8B",
+    thumbnail: "https://img.youtube.com/vi/2XuH2GalM1U/maxresdefault.jpg",
+    artist: "Dante Gebel",
+    description: "Dios usa las cosas rotas y las transforma"
   }
 ];
