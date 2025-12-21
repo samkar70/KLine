@@ -1,15 +1,49 @@
 // components/EventsSection.tsx
-import React from 'react';
+import React, { useState } from 'react';
 import { LocationIcon } from './icons';
+import EventModal from './EventModal';
 
-// CAMBIO: La lista ahora solo contiene 3 eventos.
 const nextEvents = [
-  { month: 'Oct', day: '10', name: 'CAIN: Live and in Color', location: 'Houston, TX' },
-  { month: 'Oct', day: '10', name: 'Tim Hawkins Live', location: 'Universal City, TX' },
-  { month: 'Oct', day: '11', name: 'CAIN: Live and in Color', location: 'Carrollton, TX' },
+  { 
+    month: 'Oct', 
+    day: '10', 
+    name: 'CAIN: Live and in Color', 
+    location: 'Houston, TX',
+    description: 'Una gira vibrante llena de armonía y color. Disfruta de los éxitos de CAIN en una noche inolvidable en el corazón de Houston.',
+    time: '8:00 PM'
+  },
+  { 
+    month: 'Oct', 
+    day: '10', 
+    name: 'Tim Hawkins Live', 
+    location: 'Universal City, TX',
+    description: 'Risas aseguradas con el humor cristiano de Tim Hawkins. Un evento para toda la familia que no te querrás perder.',
+    time: '7:30 PM'
+  },
+  { 
+    month: 'Oct', 
+    day: '11', 
+    name: 'CAIN: Live and in Color', 
+    location: 'Carrollton, TX',
+    description: 'La gira continúa en Carrollton. Ven a ser parte de esta atmósfera de fe y alegría.',
+    time: '7:00 PM'
+  },
 ];
 
 const EventsSection: React.FC = () => {
+  const [selectedEvent, setSelectedEvent] = useState<typeof nextEvents[0] | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = (event: typeof nextEvents[0]) => {
+    setSelectedEvent(event);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedEvent(null);
+  };
+
   return (
     <section className="pt-16 sm:pt-24 border-t border-slate-700/50">
       <div>
@@ -25,19 +59,31 @@ const EventsSection: React.FC = () => {
                   <span className="text-xs font-bold uppercase">{event.month}</span>
                   <span className="text-2xl font-extrabold">{event.day}</span>
                 </div>
-                <div className="ml-4 flex-grow">
+                <div className="ml-4 flex-grow cursor-pointer" onClick={() => handleOpenModal(event)}>
                   <h4 className="font-bold text-slate-100">{event.name}</h4>
                   <p className="text-sm text-slate-400 flex items-center gap-1 mt-1">
                     <LocationIcon className="w-4 h-4" />
                     {event.location}
                   </p>
                 </div>
-                <button className="ml-4 bg-slate-700 text-white font-bold py-2 px-4 rounded-full text-sm hover:bg-amber-400 hover:text-slate-900 transition-colors hidden sm:block">Details</button>
+                <button 
+                  onClick={() => handleOpenModal(event)}
+                  className="ml-4 bg-slate-700 text-white font-bold py-2 px-4 rounded-full text-sm hover:bg-amber-400 hover:text-slate-900 transition-colors hidden sm:block"
+                >
+                  Details
+                </button>
               </li>
             ))}
           </ul>
         </div>
       </div>
+
+      {/* Renderizado del Modal */}
+      <EventModal 
+        event={selectedEvent} 
+        isOpen={isModalOpen} 
+        onClose={handleCloseModal} 
+      />
     </section>
   );
 };

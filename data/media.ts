@@ -1,59 +1,53 @@
-// src/data/media.ts
-import { MediaItem } from '../types'; // Asume que types.ts ya está en la raíz o ajusta la ruta
+// data/media.ts
+import { MediaItem } from '../types';
 
-export const mediaData: MediaItem[] = [
+export const hubMedia: MediaItem[] = [
   {
-    id: '1',
-    title: 'Coastal Waves',
+    id: 'hub-1',
+    title: 'Daniel - Video de Prueba',
     type: 'video',
-    url: 'https://www.w3schools.com/html/mov_bbb.mp4', // URL de ejemplo
-    thumbnail: 'https://picsum.photos/id/1018/200/150', // Miniatura de ejemplo
-    duration: '0:59',
-    artist: ''
+    url: 'https://youtu.be/Wa0tzNFNNv8', 
+    thumbnail: 'https://img.youtube.com/vi/Wa0tzNFNNv8/mqdefault.jpg', // Miniatura estable
+    duration: '4:22',
+    artist: 'EnCanto'
   },
   {
-    id: '2',
-    title: 'Mountain Ascent',
-    type: 'video',
-    url: 'https://www.w3schools.com/html/movie.mp4', // URL de ejemplo
-    thumbnail: 'https://picsum.photos/id/1015/200/150', // Miniatura de ejemplo
-    duration: '8:15',
-    artist: ''
-  },
-  {
-    id: '3',
-    title: 'Tech House Groove',
+    id: 'hub-2',
+    title: 'Momento de Oración',
     type: 'audio',
-    url: 'https://www.w3schools.com/html/horse.mp3', // URL de ejemplo
-    thumbnail: 'https://picsum.photos/id/1016/200/150', // Miniatura de ejemplo
-    duration: '2:05',
-    artist: 'Alejandro Magaña'
-  },
+    url: 'https://www.w3schools.com/html/horse.mp3',
+    thumbnail: 'https://picsum.photos/400/225?random=10',
+    duration: '2:30',
+    artist: 'Instrumental'
+  }
+];
+
+export const featuredMedia: MediaItem[] = [
   {
-    id: '4',
-    title: 'City Night Life',
+    id: 'feat-1',
+    title: 'Nueva Entrevista Exclusiva',
     type: 'video',
-    url: 'https://www.w3schools.com/html/mov_bbb.mp4', // Otra URL de ejemplo
-    thumbnail: 'https://picsum.photos/id/103/200/150', // Miniatura de ejemplo
-    duration: '0:29',
-    artist: ''
+    url: 'https://youtu.be/1m0qA9L-_HY', 
+    thumbnail: 'https://img.youtube.com/vi/1m0qA9L-_HY/mqdefault.jpg', // Miniatura estable
+    duration: '12:40',
+    artist: 'EnCanto'
   },
   {
-    id: '5',
-    title: 'Dreamy Inspiring Piano',
-    type: 'audio',
-    url: 'https://www.w3schools.com/html/horse.mp3', // Otra URL de ejemplo
-    thumbnail: 'https://picsum.photos/id/1025/200/150', // Miniatura de ejemplo
-    duration: '2:11',
-    artist: 'Ahjay Stelino'
-  },
-  {
-    id: '6',
-    title: 'Autumn Forest',
+    id: 'feat-2',
+    title: 'Bart Millard Interview',
     type: 'video',
-    url: 'https://www.w3schools.com/html/movie.mp4', // Otra URL de ejemplo
-    thumbnail: 'https://picsum.photos/id/1067/200/150', // Miniatura de ejemplo
-    duration: '0:15',
-    artist: ''
+    url: 'https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4', 
+    thumbnail: 'https://picsum.photos/400/225?random=22',
+    duration: '12:45',
+    artist: 'Bart Millard'
   },
+  {
+    id: 'feat-3',
+    title: 'Andrew Ripp Performance',
+    type: 'video',
+    url: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4', 
+    thumbnail: 'https://picsum.photos/400/225?random=23',
+    duration: '05:30',
+    artist: 'Andrew Ripp'
+  }
 ];
