@@ -1,4 +1,8 @@
-id,title,type,category,url,thumbnail,artist,description
+id,title,type,category,url,thumbnail,date,artist,description
+ent-01,Nueva Entrevista Exclusiva,video,Entrevistas,https://youtu.be/1m0qA9L-_HY,https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=800&q=80,2025-12-21,Karla Perdomo,Una conversación profunda sobre la fe y el impacto en la comunidad
+mom-01,Daniel - Video de Prueba,video,Momentos,https://youtu.be/Wa0tzNFNNv8,https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=800&q=80,2025-12-20,EnCanto,Reflexión visual para fortalecer tu espíritu hoy
+mus-01,Alabanza en Directo,video,Musica,https://youtu.be/1m0qA9L-_HY,https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=800&q=80,2025-12-18,Coro EnCanto,Música que eleva el espíritu y conecta con lo divino
+tes-01,Testimonio: Una vida transformada,video,Testimonios,https://youtu.be/Wa0tzNFNNv8,https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80,2025-12-15,Comunidad EnCanto,Historias reales de esperanza y superación
 v01,Popurrí de Adoración al Señor,video,Musica,https://www.youtube.com/watch?v=hlL2pBQXi1Y,https://img.youtube.com/vi/hlL2pBQXi1Y/maxresdefault.jpg,Samuel & Anabel,Una recopilación de temas de adoración para ministrar al espíritu.
 v02,Derramo El Perfume,video,Musica,https://www.youtube.com/watch?v=4z9-edB7rLU,https://img.youtube.com/vi/4z9-edB7rLU/maxresdefault.jpg,Samuel Perdomo,Adoración profunda reconociendo la presencia de Dios en nuestras vidas.
 v03,Reflexión: Sí Hay Esperanza,video,Momentos,https://www.youtube.com/watch?v=mqeSH1xgM7k,https://img.youtube.com/vi/mqeSH1xgM7k/maxresdefault.jpg,EnCanto Radio,Un momento de aliento para aquellos que buscan una respuesta en Cristo Jesús.
