@@ -34,7 +34,7 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    fetch('/DBEnCanto - Sheet1.csv')
+    fetch('/db.csv')
       .then(res => res.text())
       .then(text => {
         const rows = text.split(/\r?\n/).filter(l => l.trim().length > 5);
