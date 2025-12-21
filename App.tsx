@@ -1,55 +1,96 @@
 // App.tsx
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { PlaybackProvider } from './context/PlaybackContext';
 import Hero from './components/Hero';
 import ContentRow from './components/ContentRow';
 import UniversalPlayer from './components/UniversalPlayer';
 import NowPlayingBar from './components/NowPlayingBar';
-import CategoryBar from './components/CategoryBar';
 import { Footer, WhatsAppButton } from './components/Footer';
-
-// Importamos las 4 opciones de presentación
-import SegmentsShowcase from './components/SegmentsShowcase';
 import MeetTheHosts from './components/MeetTheHosts';
 import PrayerRequestBanner from './components/PrayerRequestBanner';
 import VerseOfTheDay from './components/VerseOfTheDay';
+import SearchBar from './components/SearchBar'; // Importamos el buscador
+import { MediaItem } from './types';
 
 const App: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState('Todos');
+  const [data, setData] = useState<MediaItem[]>([]);
+  const [searchTerm, setSearchTerm] = useState(''); // Estado para la búsqueda
+  const [bgImage, setBgImage] = useState('');
+  const [isReady, setIsReady] = useState(false);
+
+  // FILTRO INTELIGENTE: Filtra por título, artista o categoría
+  const filteredData = useMemo(() => {
+    return data.filter(item => 
+      item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.artist.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.category.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }, [data, searchTerm]);
+
+  const changeBackground = useCallback(() => {
+    const images = ['photo-1507692879628-2d748303451f', 'photo-1438232992991-995b7058bbb3', 'photo-1510915361894-db8b60106cb1'];
+    const randomId = images[Math.floor(Math.random() * images.length)];
+    setBgImage(`https://images.unsplash.com/${randomId}?auto=format&fit=crop&w=1920&q=80`);
+  }, []);
+
+  useEffect(() => {
+    fetch('/DBEnCanto - Sheet1.csv')
+      .then(res => res.text())
+      .then(text => {
+        const rows = text.split(/\r?\n/).filter(l => l.trim().length > 5);
+        const parsed = rows.slice(1).map((row, idx) => {
+          const cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+          return {
+            id: cols[0]?.trim() || `id-${idx}`,
+            title: cols[1]?.trim() || "Sin título",
+            type: cols[2]?.trim() || "video",
+            category: cols[3]?.trim() || "General",
+            url: cols[4]?.trim() || "",
+            thumbnail: cols[5]?.trim() || "",
+            artist: cols[7]?.trim() || "EnCanto",
+            description: cols[8]?.trim() || ""
+          } as MediaItem;
+        }).filter(item => item.url.includes('http'));
+        setData(parsed);
+        setIsReady(true);
+      }).catch(() => setIsReady(true));
+    changeBackground();
+  }, [changeBackground]);
+
+  if (!isReady) return <div className="bg-slate-950 h-screen"></div>;
 
   return (
     <PlaybackProvider>
-      <div className="bg-slate-950 min-h-screen text-white font-sans selection:bg-amber-400 selection:text-black">
+      <div className="bg-slate-950 min-h-screen text-white relative overflow-x-hidden">
+        {/* Fondo interactivo */}
+        <div onClick={changeBackground} className="fixed inset-0 z-0 opacity-20 cursor-pointer transition-all duration-1000" style={{ backgroundImage: `url(${bgImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+        
         <UniversalPlayer />
         
-        <main className="pb-10">
-          <Hero />
-          <div className="container mx-auto relative z-30 mt-[-40px] mb-20">
-            <CategoryBar activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
-            <div className="space-y-6">
-              {(activeCategory === 'Todos' || activeCategory === 'Entrevistas') && <ContentRow title="Entrevistas Exclusivas" category="Entrevistas" />}
-              {(activeCategory === 'Todos' || activeCategory === 'Momentos') && <ContentRow title="Momentos Especiales" category="Momentos" />}
+        <main className="relative z-10 pb-40">
+          <Hero latestItem={data[0]} />
+          
+          <div className="container mx-auto px-4">
+            {/* INSERTAMOS EL BUSCADOR AQUÍ */}
+            <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+
+            <div className="space-y-8">
+              <ContentRow title="Entrevistas Exclusivas" category="Entrevistas" items={filteredData} />
+              <ContentRow title="Momentos Especiales" category="Momentos" items={filteredData} />
+              <ContentRow title="Alabanza & Música" category="Musica" items={filteredData} />
+              
+              {/* Ocultamos estas secciones cuando el usuario está buscando algo específico */}
+              {!searchTerm && (
+                <>
+                  <MeetTheHosts />
+                  <PrayerRequestBanner />
+                  <VerseOfTheDay verse="Todo lo puedo en Cristo que me fortalece" reference="Filipenses 4:13" />
+                </>
+              )}
             </div>
           </div>
-
-          {/* --- ÁREA DE PRESENTACIÓN DE OPCIONES --- */}
-          <div className="bg-slate-900/50 py-10">
-            <div className="container mx-auto text-center mb-10"><h2 className="text-amber-400 font-black text-2xl uppercase">--- Opción 1: Nuestros Segmentos ---</h2></div>
-            <SegmentsShowcase />
-            
-            <div className="container mx-auto text-center my-10"><h2 className="text-amber-400 font-black text-2xl uppercase">--- Opción 2: Conoce a tus Locutores ---</h2></div>
-            <MeetTheHosts />
-            
-            <div className="container mx-auto text-center my-10"><h2 className="text-amber-400 font-black text-2xl uppercase">--- Opción 3: Peticiones de Oración ---</h2></div>
-            <PrayerRequestBanner />
-            
-            <div className="container mx-auto text-center my-10"><h2 className="text-amber-400 font-black text-2xl uppercase">--- Opción 4: Versículo del Día ---</h2></div>
-            <VerseOfTheDay />
-          </div>
-          {/* --- FIN DEL ÁREA DE PRESENTACIÓN --- */}
-
         </main>
-
+        
         <Footer />
         <WhatsAppButton />
         <NowPlayingBar />

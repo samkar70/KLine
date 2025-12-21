@@ -1,5 +1,11 @@
 {
-  "name": "KLive Inspired Fan Page",
-  "description": "A visually rich fan page inspired by the KLive website, showcasing Christian music, faith-based content, and events. Built with React and Tailwind CSS.",
-  "requestFramePermissions": []
+  "name": "EnCanto - Radio Online",
+  "description": "Plataforma oficial de Radio EnCanto. Música, fe y esperanza en un solo lugar.",
+  "keywords": [
+    "Radio",
+    "EnCanto",
+    "YouTube Fan Hub",
+    "Música Cristiana",
+    "Fe"
+  ]
 }
