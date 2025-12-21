@@ -1,4 +1,3 @@
-// App.tsx
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { PlaybackProvider } from './context/PlaybackContext';
 import Hero from './components/Hero';
@@ -9,16 +8,16 @@ import { Footer, WhatsAppButton } from './components/Footer';
 import MeetTheHosts from './components/MeetTheHosts';
 import PrayerRequestBanner from './components/PrayerRequestBanner';
 import VerseOfTheDay from './components/VerseOfTheDay';
-import SearchBar from './components/SearchBar'; // Importamos el buscador
+import SearchBar from './components/SearchBar';
 import { MediaItem } from './types';
 
 const App: React.FC = () => {
   const [data, setData] = useState<MediaItem[]>([]);
-  const [searchTerm, setSearchTerm] = useState(''); // Estado para la búsqueda
+  const [searchTerm, setSearchTerm] = useState('');
   const [bgImage, setBgImage] = useState('');
-  const [isReady, setIsReady] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  // FILTRO INTELIGENTE: Filtra por título, artista o categoría
+  // FILTRO: Este es el cerebro que busca en el contenido construido
   const filteredData = useMemo(() => {
     return data.filter(item => 
       item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -33,53 +32,65 @@ const App: React.FC = () => {
     setBgImage(`https://images.unsplash.com/${randomId}?auto=format&fit=crop&w=1920&q=80`);
   }, []);
 
+  // EL PROGRAMA LECTOR: Convierte CSV -> Objetos TS
   useEffect(() => {
-    fetch('/db.csv')
-      .then(res => res.text())
-      .then(text => {
-        const rows = text.split(/\r?\n/).filter(l => l.trim().length > 5);
-        const parsed = rows.slice(1).map((row, idx) => {
+    const loadDatabase = async () => {
+      try {
+        const response = await fetch(`/db.csv?v=${Date.now()}`); // Forzamos a Vercel a leer el archivo nuevo
+        if (!response.ok) throw new Error("Archivo no encontrado");
+        
+        const text = await response.text();
+        const rows = text.split(/\r?\n/).filter(line => line.trim().length > 0);
+        
+        // El "Constructor" de objetos
+        const builtData: MediaItem[] = rows.slice(1).map((row, index) => {
+          // Separador inteligente para manejar comas dentro de textos
           const cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
           return {
-            id: cols[0]?.trim() || `id-${idx}`,
+            id: cols[0]?.trim() || `id-${index}`,
             title: cols[1]?.trim() || "Sin título",
-            type: cols[2]?.trim() || "video",
+            type: (cols[2]?.trim() as any) || "video",
             category: cols[3]?.trim() || "General",
             url: cols[4]?.trim() || "",
             thumbnail: cols[5]?.trim() || "",
             artist: cols[7]?.trim() || "EnCanto",
             description: cols[8]?.trim() || ""
-          } as MediaItem;
-        }).filter(item => item.url.includes('http'));
-        setData(parsed);
-        setIsReady(true);
-      }).catch(() => setIsReady(true));
+          };
+        }).filter(item => item.url.startsWith('http')); // Solo videos válidos
+
+        setData(builtData);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error en el Motor de Datos:", error);
+        setLoading(false);
+      }
+    };
+
+    loadDatabase();
     changeBackground();
   }, [changeBackground]);
 
-  if (!isReady) return <div className="bg-slate-950 h-screen"></div>;
+  if (loading) return <div className="bg-slate-950 h-screen flex items-center justify-center text-white">Cargando EnCanto...</div>;
 
   return (
     <PlaybackProvider>
       <div className="bg-slate-950 min-h-screen text-white relative overflow-x-hidden">
-        {/* Fondo interactivo */}
-        <div onClick={changeBackground} className="fixed inset-0 z-0 opacity-20 cursor-pointer transition-all duration-1000" style={{ backgroundImage: `url(${bgImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+        <div onClick={changeBackground} className="fixed inset-0 z-0 opacity-20 cursor-pointer" style={{ backgroundImage: `url(${bgImage})`, backgroundSize: 'cover' }}></div>
         
         <UniversalPlayer />
         
         <main className="relative z-10 pb-40">
-          <Hero latestItem={data[0]} />
+          {data.length > 0 && <Hero latestItem={data[0]} />}
           
           <div className="container mx-auto px-4">
-            {/* INSERTAMOS EL BUSCADOR AQUÍ */}
             <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
             <div className="space-y-8">
+              {/* Estos componentes leen los datos que el programa construyó */}
               <ContentRow title="Entrevistas Exclusivas" category="Entrevistas" items={filteredData} />
               <ContentRow title="Momentos Especiales" category="Momentos" items={filteredData} />
               <ContentRow title="Alabanza & Música" category="Musica" items={filteredData} />
               
-              {/* Ocultamos estas secciones cuando el usuario está buscando algo específico */}
               {!searchTerm && (
                 <>
                   <MeetTheHosts />
