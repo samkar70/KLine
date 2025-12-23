@@ -117,7 +117,7 @@ export const mediaDatabase: MediaItem[] = [
     type: "video",
     category: "Musica",
     url: "https://www.youtube.com/watch?v=TfE7p8n7d9c",
-    thumbnail: "https://img.youtube.com/vi/TfE7p8n7d9c/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/TfE7p8n7d9c/hqdefault.jpg",
     artist: "Elevation Worship",
     description: "El éxito más vibrante de 2024 que está liderando la adoración en todo el mundo."
   },
@@ -127,7 +127,7 @@ export const mediaDatabase: MediaItem[] = [
     type: "video",
     category: "Musica",
     url: "https://www.youtube.com/watch?v=R9NshNpsT1E",
-    thumbnail: "https://img.youtube.com/vi/R9NshNpsT1E/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/R9NshNpsT1E/hqdefault.jpg",
     artist: "Miel San Marcos",
     description: "Una poderosa versión en español del himno contemporáneo "Holy Forever"."
   },
@@ -137,7 +137,7 @@ export const mediaDatabase: MediaItem[] = [
     type: "video",
     category: "Musica",
     url: "https://www.youtube.com/watch?v=7uV8BofVqNo",
-    thumbnail: "https://img.youtube.com/vi/7uV8BofVqNo/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/7uV8BofVqNo/hqdefault.jpg",
     artist: "Daniel Calveti",
     description: "Un canto de agradecimiento profundo que ha tocado miles de corazones este año."
   },
@@ -147,7 +147,7 @@ export const mediaDatabase: MediaItem[] = [
     type: "video",
     category: "Musica",
     url: "https://www.youtube.com/watch?v=MIn_XvXmHhE",
-    thumbnail: "https://img.youtube.com/vi/MIn_XvXmHhE/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/MIn_XvXmHhE/hqdefault.jpg",
     artist: "Bethel Music",
     description: "La emotiva declaración de la fidelidad de Dios que no puede faltar en tu radio."
   },
@@ -157,7 +157,7 @@ export const mediaDatabase: MediaItem[] = [
     type: "video",
     category: "Musica",
     url: "https://www.youtube.com/watch?v=mC-zw0zEHSQ",
-    thumbnail: "https://img.youtube.com/vi/mC-zw0zEHSQ/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/mC-zw0zEHSQ/hqdefault.jpg",
     artist: "Maverick City Música",
     description: "Adoración sobre la provisión suficiente de Dios en cada etapa de nuestra vida."
   },
@@ -167,7 +167,7 @@ export const mediaDatabase: MediaItem[] = [
     type: "video",
     category: "Musica",
     url: "https://www.youtube.com/watch?v=Lq2fP8M9N3I",
-    thumbnail: "https://img.youtube.com/vi/Lq2fP8M9N3I/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/Lq2fP8M9N3I/hqdefault.jpg",
     artist: "Charity Gayle",
     description: "Un clamor poderoso declarando el nombre de Jesús sobre las familias y naciones."
   },
@@ -177,7 +177,7 @@ export const mediaDatabase: MediaItem[] = [
     type: "video",
     category: "Musica",
     url: "https://www.youtube.com/watch?v=Z6SjX8_4Yis",
-    thumbnail: "https://img.youtube.com/vi/Z6SjX8_4Yis/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/Z6SjX8_4Yis/hqdefault.jpg",
     artist: "Cody Carnes",
     description: "Una declaración de fe inamovible sobre la roca firme que es Cristo Jesús."
   },
@@ -187,7 +187,7 @@ export const mediaDatabase: MediaItem[] = [
     type: "video",
     category: "Musica",
     url: "https://www.youtube.com/watch?v=0_XvT_S1vXw",
-    thumbnail: "https://img.youtube.com/vi/0_XvT_S1vXw/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/0_XvT_S1vXw/hqdefault.jpg",
     artist: "Elevation Worship",
     description: "Un himno moderno que nos invita a descansar plenamente en las promesas del Señor."
   },
@@ -197,7 +197,7 @@ export const mediaDatabase: MediaItem[] = [
     type: "video",
     category: "Musica",
     url: "https://www.youtube.com/watch?v=W5m0S6F_N_k",
-    thumbnail: "https://img.youtube.com/vi/W5m0S6F_N_k/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/W5m0S6F_N_k/hqdefault.jpg",
     artist: "Elevation Worship",
     description: "Recordando que el Dios de los milagros de la Biblia sigue obrando hoy en nosotros."
   },
@@ -207,7 +207,7 @@ export const mediaDatabase: MediaItem[] = [
     type: "video",
     category: "Musica",
     url: "https://www.youtube.com/watch?v=Of5IcFWiEpg",
-    thumbnail: "https://img.youtube.com/vi/Of5IcFWiEpg/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/Of5IcFWiEpg/hqdefault.jpg",
     artist: "Hillsong En Español",
     description: "Un recorrido musical por la historia de la salvación y la victoria de Cristo."
   },
@@ -217,7 +217,7 @@ export const mediaDatabase: MediaItem[] = [
     type: "video",
     category: "Musica",
     url: "https://www.youtube.com/watch?v=Z32HiCoFzlU",
-    thumbnail: "https://img.youtube.com/vi/Z32HiCoFzlU/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/Z32HiCoFzlU/hqdefault.jpg",
     artist: "Pat Barrett",
     description: "Un compromiso de edificar nuestra existencia sobre el fundamento de Su amor."
   },
@@ -227,7 +227,7 @@ export const mediaDatabase: MediaItem[] = [
     type: "video",
     category: "Musica",
     url: "https://www.youtube.com/watch?v=_S39T7_H9_I",
-    thumbnail: "https://img.youtube.com/vi/_S39T7_H9_I/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/_S39T7_H9_I/hqdefault.jpg",
     artist: "Maverick City Música",
     description: "Exaltación pura reconociendo que Dios merece todo el honor y la adoración."
   },
@@ -237,7 +237,7 @@ export const mediaDatabase: MediaItem[] = [
     type: "video",
     category: "Musica",
     url: "https://www.youtube.com/watch?v=Zp6aykyZEkg",
-    thumbnail: "https://img.youtube.com/vi/Zp6aykyZEkg/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/Zp6aykyZEkg/hqdefault.jpg",
     artist: "Kari Jobe & Cody Carnes",
     description: "La bendición bíblica que ha unido a la iglesia global en un solo clamor."
   },
@@ -247,7 +247,7 @@ export const mediaDatabase: MediaItem[] = [
     type: "video",
     category: "Musica",
     url: "https://www.youtube.com/watch?v=vK8Hk7-D-W8",
-    thumbnail: "https://img.youtube.com/vi/vK8Hk7-D-W8/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/vK8Hk7-D-W8/hqdefault.jpg",
     artist: "Elevation Worship",
     description: "Una declaración de fe sobre el poder ilimitado de Dios para hacer lo imposible."
   },
@@ -257,7 +257,7 @@ export const mediaDatabase: MediaItem[] = [
     type: "video",
     category: "Musica",
     url: "https://www.youtube.com/watch?v=19u5G_Gv07U",
-    thumbnail: "https://img.youtube.com/vi/19u5G_Gv07U/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/19u5G_Gv07U/hqdefault.jpg",
     artist: "CeCe Winans",
     description: "Canción de victoria para creer por los milagros y las promesas de Dios hoy."
   },
@@ -267,7 +267,7 @@ export const mediaDatabase: MediaItem[] = [
     type: "video",
     category: "Entrevistas",
     url: "https://www.youtube.com/watch?v=7rRQgxsXHKk",
-    thumbnail: "https://img.youtube.com/vi/7rRQgxsXHKk/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/7rRQgxsXHKk/hqdefault.jpg",
     artist: "Robert Madu",
     description: "Una de las conversaciones más impactantes sobre identidad grabada en Dallas."
   },
@@ -277,7 +277,7 @@ export const mediaDatabase: MediaItem[] = [
     type: "video",
     category: "Entrevistas",
     url: "https://www.youtube.com/watch?v=oz08PbNZdio",
-    thumbnail: "https://img.youtube.com/vi/oz08PbNZdio/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/oz08PbNZdio/hqdefault.jpg",
     artist: "Michael Miller",
     description: "Enseñanza profunda sobre la vida espiritual desde Upper Room Dallas."
   },
@@ -297,7 +297,7 @@ export const mediaDatabase: MediaItem[] = [
     type: "video",
     category: "Entrevistas",
     url: "https://www.youtube.com/watch?v=pCQYOXPqFo4",
-    thumbnail: "https://img.youtube.com/vi/pCQYOXPqFo4/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/pCQYOXPqFo4/hqdefault.jpg",
     artist: "Tony Evans",
     description: "El legado y la sabiduría del Dr. Evans en su iglesia de Oak Cliff."
   },
@@ -307,7 +307,7 @@ export const mediaDatabase: MediaItem[] = [
     type: "video",
     category: "Entrevistas",
     url: "https://www.youtube.com/watch?v=8gwpmmRxylE",
-    thumbnail: "https://img.youtube.com/vi/8gwpmmRxylE/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/8gwpmmRxylE/hqdefault.jpg",
     artist: "Danilo Montero",
     description: "Conversación sobre el futuro de la iglesia hispana en el norte de Texas."
   },
@@ -317,7 +317,7 @@ export const mediaDatabase: MediaItem[] = [
     type: "video",
     category: "Entrevistas",
     url: "https://www.youtube.com/watch?v=Wq0uUvbVkEw",
-    thumbnail: "https://img.youtube.com/vi/Wq0uUvbVkEw/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/Wq0uUvbVkEw/hqdefault.jpg",
     artist: "Priscilla Shirer",
     description: "Lecciones prácticas para discernir la guía del Señor en nuestra vida diaria."
   },
@@ -327,7 +327,7 @@ export const mediaDatabase: MediaItem[] = [
     type: "video",
     category: "Entrevistas",
     url: "https://www.youtube.com/watch?v=9spqDEImC_w",
-    thumbnail: "https://img.youtube.com/vi/9spqDEImC_w/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/9spqDEImC_w/hqdefault.jpg",
     artist: "Jack Graham",
     description: "Perspectiva bíblica sobre cómo liderar con integridad en la actualidad."
   },
@@ -337,7 +337,7 @@ export const mediaDatabase: MediaItem[] = [
     type: "video",
     category: "Entrevistas",
     url: "https://www.youtube.com/watch?v=1aQEpky5OTY",
-    thumbnail: "https://img.youtube.com/vi/1aQEpky5OTY/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/1aQEpky5OTY/hqdefault.jpg",
     artist: "Matt Chandler",
     description: "Mensaje de aliento para mantenerse firme en el Evangelio en Dallas."
   },
@@ -347,7 +347,7 @@ export const mediaDatabase: MediaItem[] = [
     type: "video",
     category: "Entrevistas",
     url: "https://www.youtube.com/watch?v=Cp3-GyYHXiQ",
-    thumbnail: "https://img.youtube.com/vi/Cp3-GyYHXiQ/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/Cp3-GyYHXiQ/hqdefault.jpg",
     artist: "Robert Madu",
     description: "Conversación honesta sobre la gracia de Dios en los momentos de prueba."
   },
@@ -357,17 +357,17 @@ export const mediaDatabase: MediaItem[] = [
     type: "video",
     category: "Entrevistas",
     url: "https://www.youtube.com/watch?v=JwfOlFLewTQ",
-    thumbnail: "https://img.youtube.com/vi/JwfOlFLewTQ/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/JwfOlFLewTQ/hqdefault.jpg",
     artist: "Michael Miller",
     description: "La historia y visión del movimiento de oración Upper Room en DFW."
   },
   {
     id: "ent-11",
-    title: "Mensaje de Victoria Total",
+    title: "Mensaje de Victory Total",
     type: "video",
     category: "Entrevistas",
     url: "https://www.youtube.com/watch?v=76A3wedRDjc",
-    thumbnail: "https://img.youtube.com/vi/76A3wedRDjc/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/76A3wedRDjc/hqdefault.jpg",
     artist: "Javier Ramos",
     description: "Palabra de unción y fe desde una de las iglesias hispanas clave de Dallas."
   },
@@ -377,7 +377,7 @@ export const mediaDatabase: MediaItem[] = [
     type: "video",
     category: "Entrevistas",
     url: "https://www.youtube.com/watch?v=IouGIZeDxFk",
-    thumbnail: "https://img.youtube.com/vi/IouGIZeDxFk/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/IouGIZeDxFk/hqdefault.jpg",
     artist: "Miel San Marcos",
     description: "Impacto de la música cristiana en la comunidad latina del Metroplex."
   },
@@ -387,7 +387,7 @@ export const mediaDatabase: MediaItem[] = [
     type: "video",
     category: "Entrevistas",
     url: "https://www.youtube.com/watch?v=s8O58DGLgQs",
-    thumbnail: "https://img.youtube.com/vi/s8O58DGLgQs/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/s8O58DGLgQs/hqdefault.jpg",
     artist: "Lucas Leys",
     description: "Análisis del liderazgo generacional grabado durante eventos en Texas."
   },
@@ -397,7 +397,7 @@ export const mediaDatabase: MediaItem[] = [
     type: "video",
     category: "Entrevistas",
     url: "https://www.youtube.com/watch?v=H4p7pi9FxTE",
-    thumbnail: "https://img.youtube.com/vi/H4p7pi9FxTE/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/H4p7pi9FxTE/hqdefault.jpg",
     artist: "Robert Jeffress",
     description: "Una defensa científica y bíblica sobre la esperanza de la vida eterna."
   },
@@ -407,7 +407,7 @@ export const mediaDatabase: MediaItem[] = [
     type: "video",
     category: "Entrevistas",
     url: "https://www.youtube.com/watch?v=s3blqrCvXsI",
-    thumbnail: "https://img.youtube.com/vi/s3blqrCvXsI/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/s3blqrCvXsI/hqdefault.jpg",
     artist: "T.D. Jakes",
     description: "Sabiduría y dirección pastoral desde The Potter's House en Dallas."
   }
