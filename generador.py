@@ -3,8 +3,7 @@ import os
 import re
 
 def extraer_id_youtube(url):
-    """Extrae el ID de 11 caracteres de cualquier formato de YouTube (Shorts, Live, Estándar)."""
-    # Patrón universal para: shorts/, live/, watch?v=, y youtu.be/
+    """Extrae el ID de 11 caracteres de cualquier formato de YouTube."""
     patron = r"(?:v=|\/|embed\/|shorts\/|live\/)([a-zA-Z0-9_-]{11})(?:[?&]|$)"
     match = re.search(patron, url)
     return match.group(1) if match else url
@@ -23,7 +22,6 @@ def generar_ts():
         with open(csv_file, mode='r', encoding='utf-8') as f:
             reader = csv.DictReader(f)
             for row in reader:
-                # LIMPIEZA: Extraemos solo el ID antes de guardar
                 url_original = row['url'].strip()
                 id_limpio = extraer_id_youtube(url_original)
                 
@@ -39,7 +37,8 @@ def generar_ts():
   }}"""
                 items.append(item)
 
-        ts_content = "import {{ MediaItem }} from '../types';\n\n"
+        # CORRECCIÓN AQUÍ: Solo una llave { } para MediaItem
+        ts_content = "import { MediaItem } from '../types';\n\n"
         ts_content += "export const mediaDatabase: MediaItem[] = [\n"
         ts_content += ",\n".join(items)
         ts_content += "\n];"
@@ -50,7 +49,7 @@ def generar_ts():
         with open(output_file, 'w', encoding='utf-8') as f:
             f.write(ts_content)
         
-        print(f"Éxito: {len(items)} elementos procesados. ID de YouTube extraídos correctamente.")
+        print(f"Éxito: {len(items)} elementos procesados.")
 
     except Exception as e:
         print(f"Error procesando CSV: {e}")
