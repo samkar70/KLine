@@ -1,6 +1,16 @@
-import { MediaItem } from '../types';
+import {{ MediaItem }} from '../types';
 
 export const mediaDatabase: MediaItem[] = [
+  {
+    id: "v1767041095173",
+    title: "aaa",
+    type: "video",
+    category: "Momentos",
+    url: "https://www.youtube.com/live/fj_OXbFoLqg?si=DswkBVcyHPES1CQY",
+    thumbnail: "https://img.youtube.com/vi/fj_OXbFoLqg/maxresdefault.jpg",
+    artist: "Brandon Lake",
+    description: "aaaaaaaaaaaa"
+  },
   {
     id: "v1767041162077",
     title: "bbbbbbb",
