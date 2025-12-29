@@ -1,4 +1,4 @@
-import { MediaItem } from '../types';
+import {{ MediaItem }} from '../types';
 
 export const mediaDatabase: MediaItem[] = [
   {
@@ -6,7 +6,7 @@ export const mediaDatabase: MediaItem[] = [
     title: "bbbbbbb",
     type: "video",
     category: "Momentos",
-    url: "https://www.youtube.com/live/JNh-VILhFRE?si=AKuf63IGmpeAQI_s",
+    url: "JNh-VILhFRE",
     thumbnail: "https://img.youtube.com/vi/JNh-VILhFRE/maxresdefault.jpg",
     artist: "Brandon Lake",
     description: "bbbbbbbbbbbbb bbbbbbbbb"
@@ -16,7 +16,7 @@ export const mediaDatabase: MediaItem[] = [
     title: "ccccccccc",
     type: "video",
     category: "Momentos",
-    url: "https://www.youtube.com/live/2Fj4TFQ_fTE?si=QmapBbKPDtFq6oVe",
+    url: "2Fj4TFQ_fTE",
     thumbnail: "https://img.youtube.com/vi/2Fj4TFQ_fTE/maxresdefault.jpg",
     artist: "Brandon Lake",
     description: "cccccccccccc"
@@ -26,7 +26,7 @@ export const mediaDatabase: MediaItem[] = [
     title: "mmmmmmmm",
     type: "video",
     category: "Entrevistas",
-    url: "https://youtube.com/shorts/cOe8PFbJCFo?si=IHPsz1EoDLGEw6Uj",
+    url: "cOe8PFbJCFo",
     thumbnail: "https://img.youtube.com/vi/cOe8PFbJCFo/maxresdefault.jpg",
     artist: "Brandon Lake",
     description: "mmmmmmmmmm mmmmmmmmmmm"
@@ -36,7 +36,7 @@ export const mediaDatabase: MediaItem[] = [
     title: "mmmm",
     type: "video",
     category: "Entrevistas",
-    url: "https://youtube.com/shorts/Chmj74nfFMw?si=9fdZ8gj3Fy-IRgd_",
+    url: "Chmj74nfFMw",
     thumbnail: "https://img.youtube.com/vi/Chmj74nfFMw/maxresdefault.jpg",
     artist: "Brandon Lake",
     description: "mmmm  hhhh"
@@ -46,7 +46,7 @@ export const mediaDatabase: MediaItem[] = [
     title: "kkk",
     type: "video",
     category: "General",
-    url: "https://youtu.be/hJz3NaeDRTA?si=nDxgEBuwegPGYlXh",
+    url: "hJz3NaeDRTA",
     thumbnail: "https://img.youtube.com/vi/hJz3NaeDRTA/maxresdefault.jpg",
     artist: "EnCanto Radio",
     description: "kkk"
@@ -56,7 +56,7 @@ export const mediaDatabase: MediaItem[] = [
     title: "k",
     type: "video",
     category: "Entrevistas",
-    url: "https://www.youtube.com/live/4hvZ11J8aQI?si=6J2qd0zptef1xMXh",
+    url: "4hvZ11J8aQI",
     thumbnail: "https://img.youtube.com/vi/4hvZ11J8aQI/maxresdefault.jpg",
     artist: "Brandon Lake",
     description: "kkkkk"
@@ -66,7 +66,7 @@ export const mediaDatabase: MediaItem[] = [
     title: "ooo",
     type: "video",
     category: "Musica",
-    url: "https://youtu.be/Kl1U2G2wNAo?si=-YlwwOtqv9gN_m5H",
+    url: "Kl1U2G2wNAo",
     thumbnail: "https://img.youtube.com/vi/Kl1U2G2wNAo/maxresdefault.jpg",
     artist: "Brandon Lake",
     description: "ooooooooooo"
