@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
-import { MediaItem } from '../dist/src/data/types';
+import { MediaItem } from '../types';
 
 type PlaybackMode = 'radio' | 'video';
 
@@ -19,8 +19,18 @@ export const PlaybackProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const [currentVideo, setCurrentVideo] = useState<MediaItem | null>(null);
   const [isPlaying, setIsPlaying] = useState(true);
 
-  const playRadio = () => { setActiveMode('radio'); setCurrentVideo(null); setIsPlaying(true); };
-  const playVideo = (video: MediaItem) => { setActiveMode('video'); setCurrentVideo(video); setIsPlaying(true); };
+  const playRadio = () => { 
+    setActiveMode('radio'); 
+    setCurrentVideo(null); 
+    setIsPlaying(true); 
+  };
+
+  const playVideo = (video: MediaItem) => { 
+    setActiveMode('video'); 
+    setCurrentVideo(video); 
+    setIsPlaying(true); 
+  };
+
   const pauseAll = () => setIsPlaying(false);
 
   return (
@@ -32,6 +42,8 @@ export const PlaybackProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
 export const usePlayback = () => {
   const context = useContext(PlaybackContext);
-  if (!context) throw new Error('usePlayback debe usarse dentro de PlaybackProvider');
+  if (!context) {
+    throw new Error('usePlayback debe usarse dentro de un PlaybackProvider');
+  }
   return context;
 };
