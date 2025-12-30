@@ -2,10 +2,60 @@ import { MediaItem } from '../types';
 
 export const mediaDatabase: MediaItem[] = [
   {
+    id: "v1767026483147",
+    title: "mvm charla",
+    type: "video",
+    category: "Entrevistas",
+    url: "https://youtu.be/hJz3NaeDRTA?si=iGS46QD3wBN_ms15",
+    thumbnail: "https://img.youtube.com/vi/hJz3NaeDRTA/maxresdefault.jpg",
+    artist: "@mujerdevisionymision",
+    description: "mvm charla"
+  },
+  {
+    id: "v01",
+    title: "Transmisión en Vivo - fv5oKEex5mM",
+    type: "video",
+    category: "Entrevistas",
+    url: "https://www.youtube.com/live/fv5oKEex5mM?si=dDAdLmtTWqYexLaK",
+    thumbnail: "https://img.youtube.com/vi/fv5oKEex5mM/maxresdefault.jpg",
+    artist: "Karla Perdomo Andrade",
+    description: "Video en vivo del canal Mujer de Visión y Misión."
+  },
+  {
+    id: "v02",
+    title: "Transmisión en Vivo - Sc3NYykG-Wg",
+    type: "video",
+    category: "Entrevistas",
+    url: "https://www.youtube.com/live/Sc3NYykG-Wg?si=Qfj-5SVcwcIrkk1H",
+    thumbnail: "https://img.youtube.com/vi/Sc3NYykG-Wg/maxresdefault.jpg",
+    artist: "Karla Perdomo Andrade",
+    description: "Video en vivo del canal Mujer de Visión y Misión."
+  },
+  {
+    id: "v03",
+    title: "Transmisión en Vivo - qbhADIvbrBs",
+    type: "video",
+    category: "Entrevistas",
+    url: "https://www.youtube.com/live/qbhADIvbrBs?si=NG2JYPYHDt2pfqr0",
+    thumbnail: "https://img.youtube.com/vi/qbhADIvbrBs/maxresdefault.jpg",
+    artist: "Karla Perdomo Andrade",
+    description: "Video en vivo del canal Mujer de Visión y Misión."
+  },
+  {
+    id: "v04",
+    title: "Transmisión en Vivo - 4hvZ11J8aQI",
+    type: "video",
+    category: "Entrevistas",
+    url: "https://www.youtube.com/live/4hvZ11J8aQI?si=pADKWsJSenC7BM3B",
+    thumbnail: "https://img.youtube.com/vi/4hvZ11J8aQI/maxresdefault.jpg",
+    artist: "Karla Perdomo Andrade",
+    description: "Video en vivo del canal Mujer de Visión y Misión."
+  },
+  {
     id: "v1767041095173",
     title: "aaa",
     type: "video",
-    category: "Momentos",
+    category: "Reflexión",
     url: "https://www.youtube.com/live/fj_OXbFoLqg?si=DswkBVcyHPES1CQY",
     thumbnail: "https://img.youtube.com/vi/fj_OXbFoLqg/maxresdefault.jpg",
     artist: "Brandon Lake",
@@ -45,7 +95,7 @@ export const mediaDatabase: MediaItem[] = [
     id: "v1767041308609",
     title: "mmmm",
     type: "video",
-    category: "Entrevistas",
+    category: "Reflexión",
     url: "https://youtube.com/shorts/Chmj74nfFMw?si=9fdZ8gj3Fy-IRgd_",
     thumbnail: "https://img.youtube.com/vi/Chmj74nfFMw/maxresdefault.jpg",
     artist: "Brandon Lake",
@@ -55,7 +105,7 @@ export const mediaDatabase: MediaItem[] = [
     id: "v1767041374565",
     title: "kkk",
     type: "video",
-    category: "General",
+    category: "Reflexión",
     url: "https://youtu.be/hJz3NaeDRTA?si=nDxgEBuwegPGYlXh",
     thumbnail: "https://img.youtube.com/vi/hJz3NaeDRTA/maxresdefault.jpg",
     artist: "EnCanto Radio",
@@ -65,7 +115,7 @@ export const mediaDatabase: MediaItem[] = [
     id: "v1767041440086",
     title: "k",
     type: "video",
-    category: "Entrevistas",
+    category: "Musica",
     url: "https://www.youtube.com/live/4hvZ11J8aQI?si=6J2qd0zptef1xMXh",
     thumbnail: "https://img.youtube.com/vi/4hvZ11J8aQI/maxresdefault.jpg",
     artist: "Brandon Lake",
