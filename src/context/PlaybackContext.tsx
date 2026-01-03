@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
-import { MediaItem } from '../types';
+// CORRECCIÓN: Apunta directamente a los tipos en la raíz de src
+import { MediaItem } from '../types'; 
 
 type PlaybackMode = 'radio' | 'video';
 
@@ -42,8 +43,6 @@ export const PlaybackProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
 export const usePlayback = () => {
   const context = useContext(PlaybackContext);
-  if (!context) {
-    throw new Error('usePlayback debe usarse dentro de un PlaybackProvider');
-  }
+  if (!context) throw new Error('usePlayback debe usarse dentro de PlaybackProvider');
   return context;
 };

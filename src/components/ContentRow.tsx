@@ -1,38 +1,45 @@
-// components/ContentRow.tsx
 import React from 'react';
-import { usePlayback } from '../context/PlaybackContext';
-import { MediaItem } from '../dist/src/data/types';
+import { VideoCard } from './VideoCard';
+import { MediaItem } from '../types';
 
-interface Props { title: string; category: string; items: MediaItem[]; }
+interface ContentRowProps {
+  title: string;
+  category: string;
+  items: MediaItem[];
+  isVertical?: boolean;
+}
 
-const ContentRow: React.FC<Props> = ({ title, category, items = [] }) => {
-  const { playVideo, currentVideo } = usePlayback();
+const ContentRow: React.FC<ContentRowProps> = ({ title, category, items, isVertical = false }) => {
+  // Filtramos por la categoría asignada en el CSV
+  const categoryItems = items.filter(item => item.category === category);
   
-  // Verificación de seguridad para evitar errores si items es undefined
-  const filtered = Array.isArray(items) 
-    ? items.filter(item => item.category?.trim() === category)
-    : [];
-
-  if (filtered.length === 0) return null;
+  if (categoryItems.length === 0) return null;
 
   return (
-    <div className="py-8">
-      <h3 className="text-xl font-black mb-6 text-white px-6 uppercase italic border-l-4 border-amber-400 ml-6 tracking-tighter">
+    <section className="mb-12">
+      <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
         {title}
-      </h3>
-      <div className="flex gap-6 overflow-x-auto px-6 no-scrollbar pb-4">
-        {filtered.map(item => (
-          <div key={item.id} onClick={() => playVideo(item)} className="flex-shrink-0 w-64 group cursor-pointer">
-            <div className={`aspect-video rounded-2xl overflow-hidden border-2 transition-all duration-500 ${currentVideo?.id === item.id ? 'border-amber-400 shadow-lg' : 'border-white/5 group-hover:border-white/20'}`}>
-              <img src={item.thumbnail} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt={item.title} />
-            </div>
-            <h4 className="text-white font-bold mt-3 text-[11px] truncate uppercase italic group-hover:text-amber-400 transition-colors">
-              {item.title}
-            </h4>
-          </div>
+        <span className="text-xs font-normal text-slate-500 bg-slate-800 px-2 py-0.5 rounded-full">
+          {categoryItems.length}
+        </span>
+      </h2>
+
+      {/* Grid inteligente: 6 columnas para Shorts, 4 para Videos normales */}
+      <div className={`grid gap-5 ${
+        isVertical 
+          ? 'grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6' 
+          : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
+      }`}>
+        {categoryItems.map((item) => (
+          <VideoCard 
+            key={item.id} 
+            video={item} 
+            isVertical={isVertical} 
+          />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
+
 export default ContentRow;
